@@ -1,1 +1,9 @@
-# Ucip
+# Ucip Backend
+
+Tiene como función principal leer los datos del documento en Excel y transformarlos para que sirvan como entrada a los diferentes modelos expuestos en Model API. Esta aplicación fue desarrollada con el lenguaje C# y haciendo uso del marco de trabajo .NET 6.0.
+
+El archivo debe contar con las columnas: FC, SPO2, FR, TAM y ESTADOS. Las 4 primeras hacen referencia a los signos vitales tratados en esta investigación y son fundamentales para la clasificación y predicción de los modelos, mientras que la última columna sólo es usada por los modelos de predicción para calcular los siguientes estados en los próximos 60 minutos. Es necesario mencionar que esta ventana de tiempo fue sugerida por el equipo médico que acompañó el desarrollo de esta investigación, puesto que, se considera que rangos de tiempo muy extensos en una UCIP no son útiles por el seguimiento constante a los pacientes. 
+Inicialmente, esta aplicación recibe el grupo al que corresponde el paciente y el documento en Excel. Luego, a través de una librería llamada EPPlus (v4.5.2.1) se lee la información en el archivo adjunto y se mapea en una lista de objetos de una clase. Una vez mapeados los datos, son enviados junto con el grupo al Model API, a través de una petición REST. Finalmente, los resultados son mapeados en otra clase para ser devueltos a la aplicación Frontend para la visualización de los resultados.
+
+En futuras versiones, con el fin de facilitar la recolección de datos, se han implementado clases de modelo que a través del ORM llamado Entity Framework se agreguen a una base de datos los registros que se suban a través de la plataforma. Es decir, la información que se cargará a través de los archivos de Excel se almacenará para un futuro preprocesamiento y entrenamiento de los modelos existentes o para posibles nuevas técnicas de aprendizaje automático que se implementen.
+
