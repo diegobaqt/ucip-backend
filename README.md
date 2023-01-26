@@ -1,4 +1,4 @@
-# Ucip Backend
+# UCIP Backend
 
 Tiene como función principal leer los datos del documento en Excel y transformarlos para que sirvan como entrada a los diferentes modelos expuestos en Model API. Esta aplicación fue desarrollada con el lenguaje C# y haciendo uso del marco de trabajo .NET 6.0.
 
